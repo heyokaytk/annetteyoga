@@ -3,8 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Open Earth — Annette · Yoga</title>
-  <meta name="description" content="Open Earth Yoga with Annette. Private classes and corporate bookings in Halifax, Nova Scotia.">
+  <title>Yoga With Annettee — Private &amp; Corporate Yoga in Halifax, NS</title>
+  <meta name="description" content="Yoga With Annettee. Private classes and corporate bookings in Halifax, Nova Scotia.">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yogawithannette.com/">
+  <meta property="og:title" content="Yoga With Annettee — Private &amp; Corporate Yoga in Halifax, NS">
+  <meta property="og:description" content="Private classes and corporate bookings in Halifax, Nova Scotia.">
+  <meta property="og:image" content="https://yogawithannette.com/og-image.jpg">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Yoga With Annettee — Halifax, NS">
+  <meta name="twitter:description" content="Private classes and corporate bookings in Halifax, Nova Scotia.">
+  <meta name="twitter:image" content="https://yogawithannette.com/og-image.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
@@ -223,15 +234,6 @@
       color: #f5ede0;
       padding: 0 24px;
     }
-    .hero-location {
-      font-family: var(--font-sans);
-      font-size: 10px;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: #e8dcc8;
-      margin-bottom: 16px;
-      opacity: 0.85;
-    }
     .hero-title {
       font-family: var(--font-serif);
       font-style: italic;
@@ -247,7 +249,19 @@
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: #e8dcc8;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+    .hero-tagline {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 17px;
+      color: #e8dcc8;
       margin-bottom: 36px;
+      opacity: 0.9;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .hero-btn {
       border-color: #e8dcc8;
@@ -403,49 +417,6 @@
       margin-top: 24px;
     }
 
-    /* ── VIDEO ────────────────────────────────────── */
-    .video-section {
-      padding: 88px 0;
-      background: var(--bg);
-    }
-    .video-heading {
-      margin-bottom: 32px;
-    }
-    .video-placeholder {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      color: var(--text-lt);
-      font-size: 12px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-    .video-play {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: var(--bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      padding-left: 4px;
-    }
-    .video-embed {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border-radius: 6px;
-      border: none;
-    }
-
     /* ── BOOKS ────────────────────────────────────── */
     .books-section {
       padding: 88px 0;
@@ -456,7 +427,7 @@
     }
     .books-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 28px;
     }
     .book-card {
@@ -482,6 +453,53 @@
       letter-spacing: 0.1em;
       color: var(--text-lt);
       text-transform: uppercase;
+    }
+
+    /* ── TESTIMONIALS ─────────────────────────────── */
+    .testimonials-section {
+      padding: 88px 0;
+      background: var(--bg);
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 720px;
+    }
+    .testimonial-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 36px 40px;
+    }
+    .testimonial-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--accent-dk);
+      margin-bottom: 24px;
+    }
+    .testimonial-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .testimonial-name {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-lt);
+    }
+    .testimonial-date {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: var(--border);
+    }
+    @media (max-width: 768px) {
+      .testimonials-section { padding: 64px 0; }
+      .testimonial-card { padding: 24px; }
+      .testimonial-quote { font-size: 16px; }
     }
 
     /* ── UPDATES ──────────────────────────────────── */
@@ -644,9 +662,6 @@
       .services-grid { grid-template-columns: 1fr; }
       .service-card { padding: 28px; }
 
-      /* Video */
-      .video-section { padding: 64px 0; }
-
       /* Books */
       .books-section { padding: 64px 0; }
       .books-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
@@ -675,8 +690,8 @@
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="#home" class="nav-logo">
-        Open Earth
-        <span>Annette · Yoga</span>
+        Yoga With Annettee
+        <span>Halifax · Nova Scotia</span>
       </a>
       <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
@@ -684,10 +699,9 @@
       <ul class="nav-links" id="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#video">Video</a></li>
-        <li><a href="#reading">Reading</a></li>
-        <li><a href="#updates">Updates</a></li>
+        <li><a href="#offerings">Offerings</a></li>
+        <li><a href="#bookshelf">Bookshelf</a></li>
+        <li><a href="#reflections">Reflections</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -702,9 +716,9 @@
     >
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <p class="hero-location">Halifax · Nova Scotia</p>
-      <h1 class="hero-title">Open Earth</h1>
-      <p class="hero-sub">Annette · Yoga</p>
+      <h1 class="hero-title">Yoga With Annettee</h1>
+      <p class="hero-sub">Root &bull; Breath &bull; Belong</p>
+      <p class="hero-tagline">A space to slow down, reconnect, and come home to yourself.</p>
       <a href="#contact" class="btn hero-btn">Book a Class</a>
     </div>
   </section>
@@ -712,7 +726,7 @@
   <!-- CLIENTS -->
   <section class="clients">
     <div class="clients-inner">
-      <span class="clients-label">Trusted by</span>
+      <span class="clients-label">Community Connections</span>
       <div class="clients-list">
         <span class="clients-pill">IKEA</span>
         <span class="clients-pill">Dalhousie University</span>
@@ -736,15 +750,19 @@
           >
         </div>
         <div class="about-text">
-          <h2 class="about-name">Annette</h2>
-          <!-- EDIT: Replace this paragraph with Annette's real bio -->
-          <p>Rooted in Halifax and guided by a deep love for movement and stillness, Annette has been teaching yoga for over a decade. Her practice is a blend of breath, intention, and community — meeting every student exactly where they are.</p>
-          <p>Whether you're stepping onto the mat for the first time or deepening an existing practice, Annette creates a space that feels both grounding and expansive. She teaches privately and brings yoga into workplaces across Halifax to help teams find focus, ease, and connection.</p>
+          <h2 class="about-name">Annette Opas</h2>
+          <p>Born and raised in Halifax, Nova Scotia, I've always felt most at home near the ocean. The rhythm of the waves, the salty air, and the grounding presence of nature continue to inspire the way I move, teach, and live.</p>
+          <p>My yoga journey began as a personal search for something deeper — a way to quiet the noise, soften the pressures of everyday life, and reconnect with myself. What I found was far more than a physical practice. Yoga became a path home.</p>
+          <p>Over the past nine years, yoga has supported me through life's highs and lows, teaching me how to slow down, listen inward, and trust myself again. It has reminded me that strength and softness can exist together, and that healing often begins in the moments when we allow ourselves to simply be.</p>
+          <p>Today, I have the privilege of sharing this practice through group classes, private sessions, workplace wellness programs, and online offerings. Whether you're stepping onto the mat for the very first time or deepening an existing practice, my intention is always the same: to create a welcoming space where you can arrive exactly as you are, without judgment.</p>
+          <p>My classes are rooted in breath, mindfulness, and self-compassion. Together, we might build heat through movement, settle into stillness, or simply take a few conscious breaths. Whatever the practice holds, my hope is that you leave feeling a little more grounded, a little more connected, and a little more at home within yourself.</p>
+          <p>When I'm not teaching, you'll likely find me walking by the ocean, hiking local trails, travelling, spending time with family, listening to music, reading a good book, or cuddling up with a furry friend.</p>
+          <p>Thank you for being here.</p>
           <div class="about-tags">
-            <span class="pill">Yin Yoga</span>
-            <span class="pill">Vinyasa</span>
-            <span class="pill">All Levels</span>
-            <span class="pill">Power Flow</span>
+            <span class="pill">Private Sessions</span>
+            <span class="pill">Corporate Wellness</span>
+            <span class="pill">Group Classes</span>
+            <span class="pill">Online</span>
           </div>
         </div>
       </div>
@@ -752,9 +770,9 @@
   </section>
 
   <!-- SERVICES -->
-  <section class="services-section" id="services">
+  <section class="services-section" id="offerings">
     <div class="section-inner">
-      <p class="section-label">Services</p>
+      <p class="section-label">Offerings</p>
       <div class="services-grid">
 
         <div class="service-card">
@@ -787,73 +805,87 @@
     </div>
   </section>
 
-  <!-- VIDEO -->
-  <!-- To add a real video: replace the .video-placeholder div with:
-       <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Annette yoga video"
-         frameborder="0" allowfullscreen class="video-embed"></iframe>
-  -->
-  <section class="video-section" id="video">
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section" id="testimonials">
     <div class="section-inner">
-      <p class="section-label">Video</p>
-      <h2 class="video-heading section-heading">Practice With Me</h2>
-      <div class="video-placeholder" aria-hidden="true">
-        <div class="video-play">&#9654;</div>
-        <p>Video coming soon</p>
+      <p class="section-label">Kind Words</p>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Annette came to my women's retreat this past weekend and brought INCREDIBLE energy. Her classes are truly the best and she brought such a light to the weekend. The girls were talking about how much they loved the class all weekend. I love the way she builds heat in her classes and they are always structured so well. It was truly amazing to have her there and can't wait for the next one!"</p>
+          <div class="testimonial-meta">
+            <span class="testimonial-name">Sophie W.</span>
+            <span class="testimonial-date">&mdash; June 2026</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- BOOKS -->
-  <!-- To update: change the src, title, and author for each .book-card.
-       To add a book: duplicate one .book-card block. To remove: delete the block. -->
-  <section class="books-section" id="reading">
+  <section class="books-section" id="bookshelf">
     <div class="section-inner">
-      <p class="section-label">Currently Reading</p>
+      <p class="section-label">Recently Read</p>
       <h2 class="books-heading section-heading">On My Bookshelf</h2>
       <div class="books-grid">
 
         <div class="book-card">
-          <img class="book-cover" src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&q=80" alt="Book cover placeholder">
-          <p class="book-title">Book Title Here</p>
-          <p class="book-author">Author Name</p>
+          <img class="book-cover" src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&q=80" alt="The Prophet book cover">
+          <p class="book-title">The Prophet</p>
+          <p class="book-author">Kahlil Gibran</p>
         </div>
 
         <div class="book-card">
-          <img class="book-cover" src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300&q=80" alt="Book cover placeholder">
-          <p class="book-title">Book Title Here</p>
-          <p class="book-author">Author Name</p>
+          <img class="book-cover" src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300&q=80" alt="The Housemaid book cover">
+          <p class="book-title">The Housemaid</p>
+          <p class="book-author">Freida McFadden</p>
         </div>
 
         <div class="book-card">
-          <img class="book-cover" src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&q=80" alt="Book cover placeholder">
-          <p class="book-title">Book Title Here</p>
-          <p class="book-author">Author Name</p>
+          <img class="book-cover" src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&q=80" alt="The Housemaid's Secret book cover">
+          <p class="book-title">The Housemaid's Secret</p>
+          <p class="book-author">Freida McFadden</p>
         </div>
 
         <div class="book-card">
-          <img class="book-cover" src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=300&q=80" alt="Book cover placeholder">
-          <p class="book-title">Book Title Here</p>
-          <p class="book-author">Author Name</p>
+          <img class="book-cover" src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=300&q=80" alt="The Housemaid's Watching book cover">
+          <p class="book-title">The Housemaid's Watching</p>
+          <p class="book-author">Freida McFadden</p>
+        </div>
+
+        <div class="book-card">
+          <img class="book-cover" src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=300&q=80" alt="Just for the Summer book cover">
+          <p class="book-title">Just for the Summer</p>
+          <p class="book-author">Abby Jimenez</p>
+        </div>
+
+        <div class="book-card">
+          <img class="book-cover" src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=300&q=80" alt="Life's Too Short book cover">
+          <p class="book-title">Life's Too Short</p>
+          <p class="book-author">Abby Jimenez</p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- UPDATES -->
-  <!-- To add a new post: copy one .update-entry block, paste it ABOVE the existing entries,
-       update the date, title, and body text. -->
-  <section class="updates-section" id="updates">
+  <section class="updates-section" id="reflections">
     <div class="section-inner">
-      <p class="section-label">Updates</p>
-      <h2 class="updates-heading section-heading">Updates</h2>
+      <p class="section-label">Reflections</p>
+      <h2 class="updates-heading section-heading">Reflections</h2>
       <div class="updates-list">
 
         <div class="update-entry">
-          <p class="update-date">May 2026</p>
+          <p class="update-date">June 2026</p>
           <div class="update-body">
-            <h3 class="update-title">Welcome to Open Earth</h3>
-            <p>This is the first post — replace it with Annette's first real update. It could be an announcement, a reflection on a recent class, something she's learning, or anything she wants to share with students.</p>
+            <h3 class="update-title">Summer Solstice</h3>
+            <p>The Summer Solstice arrives each year as a gentle reminder to pause and notice. It marks the longest day of the year — a celebration of light, growth, and all that has been unfolding beneath the surface, often without us realizing it.</p>
+            <p>Nature doesn't rush into bloom. It unfolds in its own time. And perhaps we're not so different.</p>
+            <p>As I reflect on this season, I'm reminded that growth doesn't always look dramatic. Sometimes it looks like setting a boundary, taking a deep breath before reacting, resting when we need rest, and showing up for ourselves in small, consistent ways.</p>
+            <p>This year, the solstice feels especially meaningful. It arrives as I'm creating this new space and finding fresh ways to share the practice that has supported me for so many years.</p>
+            <p>If you've been practicing with me lately, you've probably heard me speak about coming home to yourself. The Summer Solstice feels like an invitation to do exactly that — to step into the light, acknowledge how far you've come, and trust the season you're in.</p>
+            <p>As we move into the fullness of summer, my hope is that you find moments to slow down, soak in the warmth, and reconnect with what truly matters.</p>
+            <p>Be well,<br>Annette</p>
           </div>
         </div>
 
@@ -904,19 +936,19 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-top">
-        <a href="#home" class="footer-logo">Open Earth</a>
+        <a href="#home" class="footer-logo">Yoga With Annettee</a>
         <ul class="footer-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#video">Video</a></li>
-          <li><a href="#reading">Reading</a></li>
-          <li><a href="#updates">Updates</a></li>
+          <li><a href="#offerings">Offerings</a></li>
+          <li><a href="#bookshelf">Bookshelf</a></li>
+          <li><a href="#reflections">Reflections</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="https://www.instagram.com/yoga.with.annettee" target="_blank" rel="noopener">Instagram</a></li>
         </ul>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Annette &middot; Open Earth Yoga</p>
+        <p>&copy; 2026 Yoga With Annettee</p>
       </div>
     </div>
   </footer>
