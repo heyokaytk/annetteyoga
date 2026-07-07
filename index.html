@@ -478,6 +478,17 @@
     .shelf-item:nth-last-child(2):nth-child(odd) {
       border-bottom: 1px solid var(--border);
     }
+    .shelf-item::before {
+      content: '';
+      display: block;
+      width: 22px;
+      height: 16px;
+      margin-bottom: 10px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 0.55;
+      background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 16' fill='none'><path d='M11 3C9 2 5 2 1.5 3v10c3.5-1 7.5-1 9.5 0' stroke='%238b6f47' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M11 3c2-1 6-1 9.5 0v10c-3.5-1-7.5-1-9.5 0' stroke='%238b6f47' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/><line x1='11' y1='3' x2='11' y2='13' stroke='%238b6f47' stroke-width='1' stroke-linecap='round'/></svg>");
+    }
     .shelf-title {
       font-family: var(--font-serif);
       font-size: 16px;
