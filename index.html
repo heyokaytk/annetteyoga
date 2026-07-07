@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yoga With Annettee — Private &amp; Corporate Yoga in Halifax, NS</title>
-  <meta name="description" content="Yoga With Annettee. Private classes and corporate bookings in Halifax, Nova Scotia.">
+  <title>Yoga With Annette — Private &amp; Corporate Yoga in Halifax, NS</title>
+  <meta name="description" content="Yoga With Annette. Private classes and corporate bookings in Halifax, Nova Scotia.">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yogawithannette.com/">
-  <meta property="og:title" content="Yoga With Annettee — Private &amp; Corporate Yoga in Halifax, NS">
+  <meta property="og:title" content="Yoga With Annette — Private &amp; Corporate Yoga in Halifax, NS">
   <meta property="og:description" content="Private classes and corporate bookings in Halifax, Nova Scotia.">
   <meta property="og:image" content="https://yogawithannette.com/og-image.jpg">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Yoga With Annettee — Halifax, NS">
+  <meta name="twitter:title" content="Yoga With Annette — Halifax, NS">
   <meta name="twitter:description" content="Private classes and corporate bookings in Halifax, Nova Scotia.">
   <meta name="twitter:image" content="https://yogawithannette.com/og-image.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -682,6 +682,76 @@
       /* Clients */
       .clients-inner { gap: 16px; }
     }
+
+    /* ── VISUAL UPGRADES ──────────────────────────── */
+
+    /* Nav: glass blur when scrolled */
+    .nav { transition: background 0.35s ease, box-shadow 0.35s ease; }
+    .nav.scrolled {
+      background: rgba(245, 237, 224, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 1px 24px rgba(74, 53, 32, 0.09);
+      border-bottom-color: transparent;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* Service cards: hover lift */
+    .service-card { transition: box-shadow 0.3s ease, transform 0.3s ease; }
+    .service-card:hover {
+      box-shadow: 0 14px 44px rgba(74, 53, 32, 0.11);
+      transform: translateY(-4px);
+    }
+
+    /* Testimonial: decorative opening quote */
+    .testimonial-card { position: relative; overflow: hidden; }
+    .testimonial-card::before {
+      content: '\201C';
+      font-family: var(--font-serif);
+      font-size: 120px;
+      line-height: 1;
+      color: var(--accent-lt);
+      opacity: 0.25;
+      position: absolute;
+      top: -8px;
+      left: 20px;
+      pointer-events: none;
+    }
+    .testimonial-quote { padding-top: 28px; }
+
+    /* About photo: offset shadow frame */
+    .about-photo { box-shadow: 6px 6px 0 var(--border); }
+
+    /* Book cards: subtle hover lift */
+    .book-card { transition: transform 0.25s ease; }
+    .book-card:hover { transform: translateY(-5px); }
+
+    /* Community pills: hover tint */
+    .clients-pill {
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      cursor: default;
+    }
+    .clients-pill:hover {
+      background: var(--accent-lt);
+      color: var(--accent-dk);
+      border-color: var(--accent-lt);
+    }
+
+    /* Footer: richer gradient */
+    .footer { background: linear-gradient(145deg, #3a2410 0%, var(--accent-dk) 100%); }
+
+    /* Hero title: depth shadow */
+    .hero-title { text-shadow: 0 2px 32px rgba(20, 10, 0, 0.35); }
+
+    /* Hero tagline italic weight refinement */
+    .hero-tagline { font-weight: 400; letter-spacing: 0.01em; }
   </style>
 </head>
 <body>
@@ -690,7 +760,7 @@
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="#home" class="nav-logo">
-        Yoga With Annettee
+        Yoga With Annette
         <span>Halifax · Nova Scotia</span>
       </a>
       <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
@@ -711,12 +781,12 @@
   <section class="hero" id="home">
     <img
       class="hero-img"
-      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80"
-      alt="Peaceful mountain landscape — placeholder for Annette's hero photo"
+      src="landscape.png"
+      alt="Nova Scotia coastline at golden hour"
     >
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1 class="hero-title">Yoga With Annettee</h1>
+      <h1 class="hero-title">Yoga With Annette</h1>
       <p class="hero-sub">Root &bull; Breath &bull; Belong</p>
       <p class="hero-tagline">A space to slow down, reconnect, and come home to yourself.</p>
       <a href="#contact" class="btn hero-btn">Book a Class</a>
@@ -936,7 +1006,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-top">
-        <a href="#home" class="footer-logo">Yoga With Annettee</a>
+        <a href="#home" class="footer-logo">Yoga With Annette</a>
         <ul class="footer-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -944,11 +1014,11 @@
           <li><a href="#bookshelf">Bookshelf</a></li>
           <li><a href="#reflections">Reflections</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="https://www.instagram.com/yoga.with.annettee" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.instagram.com/yoga.with.annette" target="_blank" rel="noopener">Instagram</a></li>
         </ul>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Yoga With Annettee</p>
+        <p>&copy; 2026 Yoga With Annette</p>
       </div>
     </div>
   </footer>
@@ -982,6 +1052,27 @@
         const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
         window.scrollTo({ top, behavior: 'smooth' });
       });
+    });
+
+    // ── NAV GLASS ON SCROLL ────────────────────────
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ── SCROLL REVEAL ──────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+
+    document.querySelectorAll('.section-inner, .service-card, .testimonial-card').forEach(el => {
+      el.classList.add('reveal');
+      revealObserver.observe(el);
     });
   </script>
 </body>
