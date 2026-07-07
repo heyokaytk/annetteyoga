@@ -335,6 +335,14 @@
       color: var(--accent-dk);
       margin-bottom: 20px;
     }
+    .about-mantra {
+      font-family: var(--font-sans);
+      font-size: 9px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent-lt);
+      margin-bottom: 20px;
+    }
     .about-text p {
       color: var(--text);
       line-height: 1.8;
@@ -510,9 +518,8 @@
     }
     .testimonials-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 24px;
-      max-width: 720px;
     }
     .testimonial-card {
       background: var(--bg-alt);
@@ -546,6 +553,7 @@
     }
     @media (max-width: 768px) {
       .testimonials-section { padding: 64px 0; }
+      .testimonials-grid { grid-template-columns: 1fr; }
       .testimonial-card { padding: 24px; }
       .testimonial-quote { font-size: 16px; }
     }
@@ -919,6 +927,7 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1 class="hero-title">Yoga With Annette</h1>
+      <p class="hero-role">Halifax-Based Yoga Teacher &amp; Guide</p>
       <p class="hero-sub">Root &bull; Breath &bull; Belong</p>
       <p class="hero-tagline">A space to slow down, reconnect, and come home to yourself.</p>
       <a href="#contact" class="btn hero-btn">Book a Class</a>
@@ -935,6 +944,7 @@
         <span class="clients-pill">R Studios</span>
         <span class="clients-pill">Shanti</span>
         <span class="clients-pill">CBC</span>
+        <span class="clients-pill">HFX Puppy Yoga</span>
       </div>
     </div>
   </section>
@@ -953,6 +963,7 @@
         </div>
         <div class="about-text">
           <h2 class="about-name">Annette Opas</h2>
+          <p class="about-mantra">Root &bull; Breath &bull; Become</p>
           <p>Born and raised in Halifax, Nova Scotia, I've always felt most at home near the ocean. The rhythm of the waves, the salty air, and the grounding presence of nature continue to inspire the way I move, teach, and live.</p>
           <p>Over the past nine years, my yoga journey evolved from a personal search to quiet the noise of everyday life into a deep path of healing. It has reminded me that strength and softness can exist together, and that healing often begins in the moments when we allow ourselves to simply be. When I'm not teaching, you'll likely find me walking by the ocean, exploring local trails, or cuddling up with a furry friend.</p>
           <div class="about-expect">
@@ -1015,6 +1026,14 @@
           <div class="testimonial-meta">
             <span class="testimonial-name">Sophie W.</span>
             <span class="testimonial-date">&mdash; June 2026</span>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"I would describe Annette's classes as: creative, intentional, accommodating, nourishing and fluid. And if I can add another word &mdash; FUN!"</p>
+          <div class="testimonial-meta">
+            <span class="testimonial-name">Lana A.</span>
+            <span class="testimonial-date">&mdash; May 2026</span>
           </div>
         </div>
 
