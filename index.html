@@ -669,6 +669,23 @@
       padding-top: 8px;
     }
 
+    /* ── FORM SUCCESS ─────────────────────────────── */
+    .form-success {
+      padding: 48px 0;
+    }
+    .form-success-title {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 28px;
+      color: var(--accent-dk);
+      margin-bottom: 12px;
+    }
+    .form-success-body {
+      font-size: 14px;
+      color: var(--text-lt);
+      line-height: 1.7;
+    }
+
     /* ── FOOTER ───────────────────────────────────── */
     .footer {
       background: var(--accent-dk);
@@ -967,6 +984,7 @@
       <div class="contact-grid">
         <form
           class="contact-form"
+          id="contact-form"
           action="https://formspree.io/f/xwvdzrkz"
           method="POST"
         >
@@ -990,6 +1008,10 @@
           </div>
           <button class="btn btn-solid" type="submit">Send Message</button>
         </form>
+        <div class="form-success" id="form-success" hidden>
+          <p class="form-success-title">Thank you.</p>
+          <p class="form-success-body">Your message has been received — Annette will be in touch soon.</p>
+        </div>
         <div class="contact-info">
           <p class="contact-note">Based in Halifax, NS — available for private and corporate bookings.</p>
         </div>
@@ -1112,6 +1134,36 @@
         const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
         window.scrollTo({ top, behavior: 'smooth' });
       });
+    });
+
+    // ── CONTACT FORM AJAX ──────────────────────────
+    const contactForm = document.getElementById('contact-form');
+    const formSuccess = document.getElementById('form-success');
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = contactForm.querySelector('button[type="submit"]');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      try {
+        const res = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          contactForm.hidden = true;
+          formSuccess.hidden = false;
+        } else {
+          btn.textContent = 'Send Message';
+          btn.disabled = false;
+          alert('Something went wrong — please try again or email directly.');
+        }
+      } catch {
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+        alert('Something went wrong — please try again or email directly.');
+      }
     });
 
     // ── READ MORE ACCORDION ────────────────────────
