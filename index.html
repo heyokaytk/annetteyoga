@@ -16,6 +16,7 @@
   <meta name="twitter:title" content="Yoga With Annette — Halifax, NS">
   <meta name="twitter:description" content="Private classes and corporate bookings in Halifax, Nova Scotia.">
   <meta name="twitter:image" content="https://yogawithannette.com/og-image.jpg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
@@ -417,42 +418,43 @@
       margin-top: 24px;
     }
 
-    /* ── BOOKS ────────────────────────────────────── */
+    /* ── BOOKSHELF ────────────────────────────────── */
     .books-section {
-      padding: 88px 0;
+      padding: 56px 0;
       background: var(--bg-alt);
     }
-    .books-heading {
-      margin-bottom: 40px;
-    }
-    .books-grid {
+    .shelf-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
     }
-    .book-card {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+    .shelf-item {
+      padding: 18px 0;
+      border-top: 1px solid var(--border);
     }
-    .book-cover {
-      width: 100%;
-      aspect-ratio: 2 / 3;
-      object-fit: cover;
-      border-radius: 4px;
-      border: 1px solid var(--border);
+    .shelf-item:nth-child(odd) {
+      padding-right: 48px;
+      border-right: 1px solid var(--border);
     }
-    .book-title {
+    .shelf-item:nth-child(even) {
+      padding-left: 48px;
+    }
+    .shelf-item:last-child,
+    .shelf-item:nth-last-child(2):nth-child(odd) {
+      border-bottom: 1px solid var(--border);
+    }
+    .shelf-title {
       font-family: var(--font-serif);
-      font-size: 14px;
+      font-size: 16px;
+      font-style: italic;
       color: var(--accent-dk);
-      line-height: 1.3;
+      margin-bottom: 4px;
     }
-    .book-author {
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      color: var(--text-lt);
+    .shelf-author {
+      font-size: 9px;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
+      color: var(--text-lt);
     }
 
     /* ── TESTIMONIALS ─────────────────────────────── */
@@ -662,9 +664,12 @@
       .services-grid { grid-template-columns: 1fr; }
       .service-card { padding: 28px; }
 
-      /* Books */
-      .books-section { padding: 64px 0; }
-      .books-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      /* Bookshelf */
+      .books-section { padding: 40px 0; }
+      .shelf-grid { grid-template-columns: 1fr; }
+      .shelf-item:nth-child(odd) { padding-right: 0; border-right: none; }
+      .shelf-item:nth-child(even) { padding-left: 0; }
+      .shelf-item:nth-last-child(2):nth-child(odd) { border-bottom: none; }
 
       /* Updates */
       .updates-section { padding: 64px 0; }
@@ -896,43 +901,36 @@
   <section class="books-section" id="bookshelf">
     <div class="section-inner">
       <p class="section-label">Recently Read</p>
-      <h2 class="books-heading section-heading">On My Bookshelf</h2>
-      <div class="books-grid">
+      <div class="shelf-grid">
 
-        <div class="book-card">
-          <img class="book-cover" src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&q=80" alt="The Prophet book cover">
-          <p class="book-title">The Prophet</p>
-          <p class="book-author">Kahlil Gibran</p>
+        <div class="shelf-item">
+          <p class="shelf-title">The Prophet</p>
+          <p class="shelf-author">Kahlil Gibran</p>
         </div>
 
-        <div class="book-card">
-          <img class="book-cover" src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300&q=80" alt="The Housemaid book cover">
-          <p class="book-title">The Housemaid</p>
-          <p class="book-author">Freida McFadden</p>
+        <div class="shelf-item">
+          <p class="shelf-title">The Housemaid</p>
+          <p class="shelf-author">Freida McFadden</p>
         </div>
 
-        <div class="book-card">
-          <img class="book-cover" src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&q=80" alt="The Housemaid's Secret book cover">
-          <p class="book-title">The Housemaid's Secret</p>
-          <p class="book-author">Freida McFadden</p>
+        <div class="shelf-item">
+          <p class="shelf-title">The Housemaid's Secret</p>
+          <p class="shelf-author">Freida McFadden</p>
         </div>
 
-        <div class="book-card">
-          <img class="book-cover" src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=300&q=80" alt="The Housemaid's Watching book cover">
-          <p class="book-title">The Housemaid's Watching</p>
-          <p class="book-author">Freida McFadden</p>
+        <div class="shelf-item">
+          <p class="shelf-title">The Housemaid's Watching</p>
+          <p class="shelf-author">Freida McFadden</p>
         </div>
 
-        <div class="book-card">
-          <img class="book-cover" src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=300&q=80" alt="Just for the Summer book cover">
-          <p class="book-title">Just for the Summer</p>
-          <p class="book-author">Abby Jimenez</p>
+        <div class="shelf-item">
+          <p class="shelf-title">Just for the Summer</p>
+          <p class="shelf-author">Abby Jimenez</p>
         </div>
 
-        <div class="book-card">
-          <img class="book-cover" src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=300&q=80" alt="Life's Too Short book cover">
-          <p class="book-title">Life's Too Short</p>
-          <p class="book-author">Abby Jimenez</p>
+        <div class="shelf-item">
+          <p class="shelf-title">Life's Too Short</p>
+          <p class="shelf-author">Abby Jimenez</p>
         </div>
 
       </div>
