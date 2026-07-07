@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Earth — Annette · Yoga</title>
+  <meta name="description" content="Open Earth Yoga with Annette. Private classes and corporate bookings in Halifax, Nova Scotia.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── VARIABLES ────────────────────────────────── */
+    :root {
+      --bg:        #f5ede0;
+      --bg-alt:    #eae4d8;
+      --accent:    #8b6f47;
+      --accent-lt: #c4a882;
+      --accent-dk: #4a3520;
+      --text:      #5c4030;
+      --text-lt:   #a08060;
+      --sage:      #8fad88;
+      --border:    #d4c4a8;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans:  'Josefin Sans', Arial, sans-serif;
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 32px;
+      --space-lg: 64px;
+      --space-xl: 88px;
+    }
+
+    /* ── RESET ────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ── SHARED UTILITIES ─────────────────────────── */
+    .section-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .section-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-lt);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .btn {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      border: 1px solid var(--accent);
+      color: var(--accent-dk);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .btn:hover { background: var(--accent); color: var(--bg); }
+    .btn-solid {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+    }
+    .btn-solid:hover { background: var(--accent-dk); border-color: var(--accent-dk); }
+    .pill {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      color: var(--text-lt);
+    }
+    .section-heading {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--accent-dk);
+    }
+
+    /* ── NAV ──────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 20px;
+      color: var(--accent-dk);
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .nav-logo span {
+      font-family: var(--font-sans);
+      font-style: normal;
+      font-size: 9px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--text-lt);
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+    .nav-links a {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-lt);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent-dk); }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--accent-dk);
+      transition: transform 0.25s, opacity 0.25s;
+    }
+    /* open state */
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    @media (max-width: 768px) {
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        position: absolute;
+        top: 64px; left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        padding: 0 32px;
+        gap: 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+      }
+      .nav-links.open {
+        max-height: 400px;
+        padding: 16px 32px 24px;
+      }
+    }
+
+    /* ── HERO ─────────────────────────────────────── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 500px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 64px;
+    }
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(35,20,5,0.70) 0%, rgba(35,20,5,0.25) 60%, rgba(35,20,5,0.10) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: #f5ede0;
+      padding: 0 24px;
+    }
+    .hero-location {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: #e8dcc8;
+      margin-bottom: 16px;
+      opacity: 0.85;
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(52px, 8vw, 88px);
+      font-weight: 400;
+      line-height: 1.05;
+      margin-bottom: 10px;
+      color: #f5ede0;
+    }
+    .hero-sub {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #e8dcc8;
+      margin-bottom: 36px;
+    }
+    .hero-btn {
+      border-color: #e8dcc8;
+      color: #f5ede0;
+    }
+    .hero-btn:hover { background: #e8dcc8; color: var(--accent-dk); }
+
+    /* ── CLIENTS ──────────────────────────────────── */
+    .clients {
+      background: var(--bg-alt);
+      padding: 28px 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .clients-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .clients-label {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-lt);
+      white-space: nowrap;
+    }
+    .clients-list {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .clients-pill {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--text-lt);
+      background: var(--bg);
+    }
+
+    /* ── ABOUT ────────────────────────────────────── */
+    .about-section {
+      padding: 88px 0;
+      background: var(--bg);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .about-photo-wrap {
+      position: sticky;
+      top: 88px;
+    }
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    .about-name {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--accent-dk);
+      margin-bottom: 20px;
+    }
+    .about-text p {
+      color: var(--text);
+      line-height: 1.8;
+    }
+    .about-text p + p {
+      margin-top: 16px;
+    }
+    .about-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    /* ── SERVICES ─────────────────────────────────── */
+    .services-section {
+      padding: 88px 0;
+      background: var(--bg-alt);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .service-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+    }
+    .service-tag {
+      display: inline-block;
+      font-size: 8px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+      background: var(--accent-lt);
+      color: var(--accent-dk);
+      margin-bottom: 16px;
+      align-self: flex-start;
+    }
+    .service-tag--corporate {
+      background: var(--sage);
+      color: #1a2e1a;
+    }
+    .service-title {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--accent-dk);
+      margin-bottom: 16px;
+    }
+    .service-desc {
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+    .service-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+    .service-list li {
+      font-size: 13px;
+      color: var(--text-lt);
+      padding-left: 14px;
+      position: relative;
+    }
+    .service-list li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--accent-lt);
+    }
+    .service-card .btn {
+      margin-top: 24px;
+    }
+
+    /* ── VIDEO ────────────────────────────────────── */
+    .video-section {
+      padding: 88px 0;
+      background: var(--bg);
+    }
+    .video-heading {
+      margin-bottom: 32px;
+    }
+    .video-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      color: var(--text-lt);
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .video-play {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      padding-left: 4px;
+    }
+    .video-embed {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 6px;
+      border: none;
+    }
+
+    /* ── BOOKS ────────────────────────────────────── */
+    .books-section {
+      padding: 88px 0;
+      background: var(--bg-alt);
+    }
+    .books-heading {
+      margin-bottom: 40px;
+    }
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+    .book-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .book-cover {
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+    .book-title {
+      font-family: var(--font-serif);
+      font-size: 14px;
+      color: var(--accent-dk);
+      line-height: 1.3;
+    }
+    .book-author {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--text-lt);
+      text-transform: uppercase;
+    }
+
+    /* ── UPDATES ──────────────────────────────────── */
+    .updates-section {
+      padding: 88px 0;
+      background: var(--bg);
+    }
+    .updates-heading {
+      margin-bottom: 48px;
+    }
+    .updates-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .update-entry {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 40px;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+    }
+    .update-entry:last-child { border-bottom: 1px solid var(--border); }
+    .update-date {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-lt);
+      padding-top: 4px;
+    }
+    .update-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--accent-dk);
+      margin-bottom: 10px;
+    }
+    .update-body p {
+      color: var(--text);
+      line-height: 1.75;
+      max-width: 640px;
+    }
+
+    /* ── CONTACT ──────────────────────────────────── */
+    .contact-section {
+      padding: 88px 0;
+      background: var(--bg-alt);
+    }
+    .contact-heading {
+      margin-bottom: 48px;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 64px;
+      align-items: start;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-label {
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-lt);
+    }
+    .form-input {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 10px 14px;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .form-textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+    .contact-note {
+      font-size: 13px;
+      color: var(--text-lt);
+      line-height: 1.7;
+      padding-top: 8px;
+    }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    .footer {
+      background: var(--accent-dk);
+      padding: 48px 32px 32px;
+    }
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(196,168,130,0.25);
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 22px;
+      color: #e8dcc8;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-lt);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #e8dcc8; }
+    .footer-bottom {
+      padding-top: 20px;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: rgba(196,168,130,0.55);
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 768px) {
+      .section-inner { padding: 0 20px; }
+
+      /* About */
+      .about-section { padding: 64px 0; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .about-photo-wrap { position: static; max-width: 260px; }
+      .about-name { font-size: 28px; }
+
+      /* Services */
+      .services-section { padding: 64px 0; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { padding: 28px; }
+
+      /* Video */
+      .video-section { padding: 64px 0; }
+
+      /* Books */
+      .books-section { padding: 64px 0; }
+      .books-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+      /* Updates */
+      .updates-section { padding: 64px 0; }
+      .update-entry { grid-template-columns: 1fr; gap: 8px; }
+
+      /* Contact */
+      .contact-section { padding: 64px 0; }
+      .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+      .form-row { grid-template-columns: 1fr; }
+
+      /* Footer */
+      .footer-top { flex-direction: column; align-items: flex-start; }
+      .footer-links { gap: 16px; }
+
+      /* Clients */
+      .clients-inner { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        Open Earth
+        <span>Annette · Yoga</span>
+      </a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#video">Video</a></li>
+        <li><a href="#reading">Reading</a></li>
+        <li><a href="#updates">Updates</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <img
+      class="hero-img"
+      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80"
+      alt="Peaceful mountain landscape — placeholder for Annette's hero photo"
+    >
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-location">Halifax · Nova Scotia</p>
+      <h1 class="hero-title">Open Earth</h1>
+      <p class="hero-sub">Annette · Yoga</p>
+      <a href="#contact" class="btn hero-btn">Book a Class</a>
+    </div>
+  </section>
+
+  <!-- CLIENTS -->
+  <section class="clients">
+    <div class="clients-inner">
+      <span class="clients-label">Trusted by</span>
+      <div class="clients-list">
+        <span class="clients-pill">IKEA</span>
+        <span class="clients-pill">Dalhousie University</span>
+        <span class="clients-pill">R Studios</span>
+        <span class="clients-pill">Shanti</span>
+        <span class="clients-pill">CBC</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="section-inner">
+      <p class="section-label">About</p>
+      <div class="about-grid">
+        <div class="about-photo-wrap">
+          <img
+            class="about-photo"
+            src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80"
+            alt="Annette — placeholder photo"
+          >
+        </div>
+        <div class="about-text">
+          <h2 class="about-name">Annette</h2>
+          <!-- EDIT: Replace this paragraph with Annette's real bio -->
+          <p>Rooted in Halifax and guided by a deep love for movement and stillness, Annette has been teaching yoga for over a decade. Her practice is a blend of breath, intention, and community — meeting every student exactly where they are.</p>
+          <p>Whether you're stepping onto the mat for the first time or deepening an existing practice, Annette creates a space that feels both grounding and expansive. She teaches privately and brings yoga into workplaces across Halifax to help teams find focus, ease, and connection.</p>
+          <div class="about-tags">
+            <span class="pill">Yin Yoga</span>
+            <span class="pill">Vinyasa</span>
+            <span class="pill">All Levels</span>
+            <span class="pill">Power Flow</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services-section" id="services">
+    <div class="section-inner">
+      <p class="section-label">Services</p>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <span class="service-tag">Private</span>
+          <h3 class="service-title">Private Classes</h3>
+          <!-- EDIT: Replace with Annette's real private class description and pricing -->
+          <p class="service-desc">One-on-one sessions tailored entirely to you. Whether you're managing an injury, building a foundation, or ready to deepen your practice, private classes move at your pace — in your space or mine.</p>
+          <ul class="service-list">
+            <li>Yin, Vinyasa, Power Flow, or All Levels</li>
+            <li>Available in-home or at a studio</li>
+            <li>Flexible scheduling</li>
+          </ul>
+          <a href="#contact" class="btn">Contact to Book</a>
+        </div>
+
+        <div class="service-card">
+          <span class="service-tag service-tag--corporate">Corporate</span>
+          <h3 class="service-title">Corporate Bookings</h3>
+          <!-- EDIT: Replace with Annette's real corporate description and pricing -->
+          <p class="service-desc">Bring yoga to your workplace. From lunchtime flow sessions to team wellness programs, Annette works with Halifax businesses to build practices that help teams feel better, focus deeper, and work together with more ease.</p>
+          <ul class="service-list">
+            <li>Single sessions or ongoing programs</li>
+            <li>On-site at your Halifax office</li>
+            <li>All experience levels welcome</li>
+          </ul>
+          <a href="#contact" class="btn">Enquire</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <!-- To add a real video: replace the .video-placeholder div with:
+       <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Annette yoga video"
+         frameborder="0" allowfullscreen class="video-embed"></iframe>
+  -->
+  <section class="video-section" id="video">
+    <div class="section-inner">
+      <p class="section-label">Video</p>
+      <h2 class="video-heading section-heading">Practice With Me</h2>
+      <div class="video-placeholder" aria-hidden="true">
+        <div class="video-play">&#9654;</div>
+        <p>Video coming soon</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKS -->
+  <!-- To update: change the src, title, and author for each .book-card.
+       To add a book: duplicate one .book-card block. To remove: delete the block. -->
+  <section class="books-section" id="reading">
+    <div class="section-inner">
+      <p class="section-label">Currently Reading</p>
+      <h2 class="books-heading section-heading">On My Bookshelf</h2>
+      <div class="books-grid">
+
+        <div class="book-card">
+          <img class="book-cover" src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&q=80" alt="Book cover placeholder">
+          <p class="book-title">Book Title Here</p>
+          <p class="book-author">Author Name</p>
+        </div>
+
+        <div class="book-card">
+          <img class="book-cover" src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300&q=80" alt="Book cover placeholder">
+          <p class="book-title">Book Title Here</p>
+          <p class="book-author">Author Name</p>
+        </div>
+
+        <div class="book-card">
+          <img class="book-cover" src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&q=80" alt="Book cover placeholder">
+          <p class="book-title">Book Title Here</p>
+          <p class="book-author">Author Name</p>
+        </div>
+
+        <div class="book-card">
+          <img class="book-cover" src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=300&q=80" alt="Book cover placeholder">
+          <p class="book-title">Book Title Here</p>
+          <p class="book-author">Author Name</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- UPDATES -->
+  <!-- To add a new post: copy one .update-entry block, paste it ABOVE the existing entries,
+       update the date, title, and body text. -->
+  <section class="updates-section" id="updates">
+    <div class="section-inner">
+      <p class="section-label">Updates</p>
+      <h2 class="updates-heading section-heading">Updates</h2>
+      <div class="updates-list">
+
+        <div class="update-entry">
+          <p class="update-date">May 2026</p>
+          <div class="update-body">
+            <h3 class="update-title">Welcome to Open Earth</h3>
+            <p>This is the first post — replace it with Annette's first real update. It could be an announcement, a reflection on a recent class, something she's learning, or anything she wants to share with students.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <!-- Formspree: replace XXXXXXXX with the real form ID from formspree.io once signed up -->
+  <section class="contact-section" id="contact">
+    <div class="section-inner">
+      <p class="section-label">Contact</p>
+      <h2 class="contact-heading section-heading">Get In Touch</h2>
+      <div class="contact-grid">
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/XXXXXXXX"
+          method="POST"
+        >
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="name">Name</label>
+              <input class="form-input" type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input class="form-input" type="email" id="email" name="email" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="subject">Subject</label>
+            <input class="form-input" type="text" id="subject" name="subject">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-input form-textarea" id="message" name="message" required></textarea>
+          </div>
+          <button class="btn btn-solid" type="submit">Send Message</button>
+        </form>
+        <div class="contact-info">
+          <p class="contact-note">Based in Halifax, NS — available for private and corporate bookings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <a href="#home" class="footer-logo">Open Earth</a>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#video">Video</a></li>
+          <li><a href="#reading">Reading</a></li>
+          <li><a href="#updates">Updates</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Annette &middot; Open Earth Yoga</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── HAMBURGER ─────────────────────────────────
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    // close menu when a link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // ── SMOOTH SCROLL WITH NAV OFFSET ─────────────
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        const navHeight = document.getElementById('nav').offsetHeight;
+        const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
