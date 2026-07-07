@@ -235,13 +235,22 @@
       margin-bottom: 10px;
       color: #f5ede0;
     }
+    .hero-role {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #e8dcc8;
+      opacity: 0.75;
+      margin-top: 14px;
+      margin-bottom: 20px;
+    }
     .hero-sub {
       font-family: var(--font-sans);
       font-size: 11px;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: #e8dcc8;
-      margin-top: 12px;
       margin-bottom: 16px;
     }
     .hero-tagline {
@@ -338,6 +347,41 @@
       gap: 8px;
       flex-wrap: wrap;
       margin-top: 28px;
+    }
+    .about-expect {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .about-expect-label {
+      font-size: 9px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--text-lt);
+      margin-bottom: 16px;
+    }
+    .about-expect-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .about-expect-list li {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.65;
+      padding-left: 16px;
+      position: relative;
+    }
+    .about-expect-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent-lt);
+    }
+    .about-expect-list strong {
+      color: var(--accent-dk);
+      font-weight: 600;
     }
 
     /* ── SERVICES ─────────────────────────────────── */
@@ -535,6 +579,24 @@
       max-width: 640px;
     }
 
+    /* ── READ MORE ────────────────────────────────── */
+    .read-more-body { margin-top: 12px; }
+    .read-more-body p + p { margin-top: 14px; }
+    .read-more-btn {
+      margin-top: 16px;
+      background: none;
+      border: none;
+      font-family: var(--font-sans);
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.2s;
+    }
+    .read-more-btn:hover { color: var(--accent-dk); }
+
     /* ── CONTACT ──────────────────────────────────── */
     .contact-section {
       padding: 88px 0;
@@ -615,9 +677,11 @@
       gap: 24px;
     }
     .footer-logo {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 22px;
+      font-family: var(--font-sans);
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
       color: #e8dcc8;
     }
     .footer-links {
@@ -763,9 +827,9 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#offerings">Offerings</a></li>
-        <li><a href="#bookshelf">Bookshelf</a></li>
-        <li><a href="#reflections">Reflections</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="#reflections">Reflections</a></li>
+        <li><a href="#bookshelf">Bookshelf</a></li>
       </ul>
     </div>
   </nav>
@@ -780,6 +844,7 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1 class="hero-title">Yoga With Annette</h1>
+      <p class="hero-role">Halifax-Based Yoga Teacher &amp; Guide</p>
       <p class="hero-sub">Root &bull; Breath &bull; Belong</p>
       <p class="hero-tagline">A space to slow down, reconnect, and come home to yourself.</p>
       <a href="#contact" class="btn hero-btn">Book a Class</a>
@@ -808,24 +873,21 @@
         <div class="about-photo-wrap">
           <img
             class="about-photo"
-            src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80"
-            alt="Annette — placeholder photo"
+            src="AnnetteProfile.jpg"
+            alt="Annette Opas"
           >
         </div>
         <div class="about-text">
           <h2 class="about-name">Annette Opas</h2>
           <p>Born and raised in Halifax, Nova Scotia, I've always felt most at home near the ocean. The rhythm of the waves, the salty air, and the grounding presence of nature continue to inspire the way I move, teach, and live.</p>
-          <p>My yoga journey began as a personal search for something deeper — a way to quiet the noise, soften the pressures of everyday life, and reconnect with myself. What I found was far more than a physical practice. Yoga became a path home.</p>
-          <p>Over the past nine years, yoga has supported me through life's highs and lows, teaching me how to slow down, listen inward, and trust myself again. It has reminded me that strength and softness can exist together, and that healing often begins in the moments when we allow ourselves to simply be.</p>
-          <p>Today, I have the privilege of sharing this practice through group classes, private sessions, workplace wellness programs, and online offerings. Whether you're stepping onto the mat for the very first time or deepening an existing practice, my intention is always the same: to create a welcoming space where you can arrive exactly as you are, without judgment.</p>
-          <p>My classes are rooted in breath, mindfulness, and self-compassion. Together, we might build heat through movement, settle into stillness, or simply take a few conscious breaths. Whatever the practice holds, my hope is that you leave feeling a little more grounded, a little more connected, and a little more at home within yourself.</p>
-          <p>When I'm not teaching, you'll likely find me walking by the ocean, hiking local trails, travelling, spending time with family, listening to music, reading a good book, or cuddling up with a furry friend.</p>
-          <p>Thank you for being here.</p>
-          <div class="about-tags">
-            <span class="pill">Private Sessions</span>
-            <span class="pill">Corporate Wellness</span>
-            <span class="pill">Group Classes</span>
-            <span class="pill">Online</span>
+          <p>Over the past nine years, my yoga journey evolved from a personal search to quiet the noise of everyday life into a deep path of healing. It has reminded me that strength and softness can exist together, and that healing often begins in the moments when we allow ourselves to simply be. When I'm not teaching, you'll likely find me walking by the ocean, exploring local trails, or cuddling up with a furry friend.</p>
+          <div class="about-expect">
+            <p class="about-expect-label">What to Expect on the Mat</p>
+            <ul class="about-expect-list">
+              <li><strong>Breath</strong> — Finding quiet through conscious, mindful breathing.</li>
+              <li><strong>Balance</strong> — Building heat through movement while finding space to settle into stillness.</li>
+              <li><strong>Self-Compassion</strong> — Leaving you feeling more grounded, connected, and at home within yourself.</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -886,6 +948,70 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="section-inner">
+      <p class="section-label">Contact</p>
+      <h2 class="contact-heading section-heading">Get In Touch</h2>
+      <div class="contact-grid">
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/XXXXXXXX"
+          method="POST"
+        >
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="name">Name</label>
+              <input class="form-input" type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input class="form-input" type="email" id="email" name="email" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="subject">Subject</label>
+            <input class="form-input" type="text" id="subject" name="subject">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-input form-textarea" id="message" name="message" required></textarea>
+          </div>
+          <button class="btn btn-solid" type="submit">Send Message</button>
+        </form>
+        <div class="contact-info">
+          <p class="contact-note">Based in Halifax, NS — available for private and corporate bookings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="updates-section" id="reflections">
+    <div class="section-inner">
+      <p class="section-label">Reflections</p>
+      <h2 class="updates-heading section-heading">Reflections</h2>
+      <div class="updates-list">
+
+        <div class="update-entry">
+          <p class="update-date">June 2026</p>
+          <div class="update-body">
+            <h3 class="update-title">Summer Solstice</h3>
+            <p>The Summer Solstice arrives each year as a gentle reminder to pause and notice. It marks the longest day of the year — a celebration of light, growth, and all that has been unfolding beneath the surface, often without us realizing it. Nature doesn't rush into bloom. It unfolds in its own time. And perhaps we're not so different&hellip;</p>
+            <div class="read-more-body" hidden>
+              <p>As I reflect on this season, I'm reminded that growth doesn't always look dramatic. Sometimes it looks like setting a boundary, taking a deep breath before reacting, resting when we need rest, and showing up for ourselves in small, consistent ways.</p>
+              <p>This year, the solstice feels especially meaningful. It arrives as I'm creating this new space and finding fresh ways to share the practice that has supported me for so many years.</p>
+              <p>If you've been practicing with me lately, you've probably heard me speak about coming home to yourself. The Summer Solstice feels like an invitation to do exactly that — to step into the light, acknowledge how far you've come, and trust the season you're in.</p>
+              <p>As we move into the fullness of summer, my hope is that you find moments to slow down, soak in the warmth, and reconnect with what truly matters.</p>
+              <p>Be well,<br>Annette</p>
+            </div>
+            <button class="read-more-btn" aria-expanded="false">+ Read More</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <section class="books-section" id="bookshelf">
     <div class="section-inner">
       <p class="section-label">Recently Read</p>
@@ -925,69 +1051,6 @@
     </div>
   </section>
 
-  <section class="updates-section" id="reflections">
-    <div class="section-inner">
-      <p class="section-label">Reflections</p>
-      <h2 class="updates-heading section-heading">Reflections</h2>
-      <div class="updates-list">
-
-        <div class="update-entry">
-          <p class="update-date">June 2026</p>
-          <div class="update-body">
-            <h3 class="update-title">Summer Solstice</h3>
-            <p>The Summer Solstice arrives each year as a gentle reminder to pause and notice. It marks the longest day of the year — a celebration of light, growth, and all that has been unfolding beneath the surface, often without us realizing it.</p>
-            <p>Nature doesn't rush into bloom. It unfolds in its own time. And perhaps we're not so different.</p>
-            <p>As I reflect on this season, I'm reminded that growth doesn't always look dramatic. Sometimes it looks like setting a boundary, taking a deep breath before reacting, resting when we need rest, and showing up for ourselves in small, consistent ways.</p>
-            <p>This year, the solstice feels especially meaningful. It arrives as I'm creating this new space and finding fresh ways to share the practice that has supported me for so many years.</p>
-            <p>If you've been practicing with me lately, you've probably heard me speak about coming home to yourself. The Summer Solstice feels like an invitation to do exactly that — to step into the light, acknowledge how far you've come, and trust the season you're in.</p>
-            <p>As we move into the fullness of summer, my hope is that you find moments to slow down, soak in the warmth, and reconnect with what truly matters.</p>
-            <p>Be well,<br>Annette</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <!-- Formspree: replace XXXXXXXX with the real form ID from formspree.io once signed up -->
-  <section class="contact-section" id="contact">
-    <div class="section-inner">
-      <p class="section-label">Contact</p>
-      <h2 class="contact-heading section-heading">Get In Touch</h2>
-      <div class="contact-grid">
-        <form
-          class="contact-form"
-          action="https://formspree.io/f/XXXXXXXX"
-          method="POST"
-        >
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="name">Name</label>
-              <input class="form-input" type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="email">Email</label>
-              <input class="form-input" type="email" id="email" name="email" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="subject">Subject</label>
-            <input class="form-input" type="text" id="subject" name="subject">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="message">Message</label>
-            <textarea class="form-input form-textarea" id="message" name="message" required></textarea>
-          </div>
-          <button class="btn btn-solid" type="submit">Send Message</button>
-        </form>
-        <div class="contact-info">
-          <p class="contact-note">Based in Halifax, NS — available for private and corporate bookings.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
@@ -997,9 +1060,9 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#offerings">Offerings</a></li>
-          <li><a href="#bookshelf">Bookshelf</a></li>
-          <li><a href="#reflections">Reflections</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="#reflections">Reflections</a></li>
+          <li><a href="#bookshelf">Bookshelf</a></li>
           <li><a href="https://www.instagram.com/yoga.with.annette" target="_blank" rel="noopener">Instagram</a></li>
         </ul>
       </div>
@@ -1037,6 +1100,17 @@
         const navHeight = document.getElementById('nav').offsetHeight;
         const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
         window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
+
+    // ── READ MORE ACCORDION ────────────────────────
+    document.querySelectorAll('.read-more-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const body = btn.previousElementSibling;
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        body.hidden = expanded;
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.textContent = expanded ? '+ Read More' : '— Read Less';
       });
     });
 
