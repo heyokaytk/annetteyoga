@@ -10,15 +10,37 @@
   <meta property="og:url" content="https://yogawithannette.com/">
   <meta property="og:title" content="Yoga With Annette — Private &amp; Corporate Yoga in Halifax, NS">
   <meta property="og:description" content="Private classes and corporate bookings in Halifax, Nova Scotia.">
-  <meta property="og:image" content="https://yogawithannette.com/og-image.jpg">
+  <meta property="og:image" content="https://yogawithannette.com/landscape.jpg">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Yoga With Annette — Halifax, NS">
   <meta name="twitter:description" content="Private classes and corporate bookings in Halifax, Nova Scotia.">
-  <meta name="twitter:image" content="https://yogawithannette.com/og-image.jpg">
+  <meta name="twitter:image" content="https://yogawithannette.com/landscape.jpg">
+  <link rel="canonical" href="https://yogawithannette.com/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="landscape.jpg" fetchpriority="high">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Annette Opas",
+    "url": "https://yogawithannette.com",
+    "image": "https://yogawithannette.com/AnnetteProfile.jpg",
+    "jobTitle": "Yoga Instructor",
+    "description": "Private and corporate yoga instruction in Halifax, Nova Scotia.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Halifax",
+      "addressRegion": "NS",
+      "addressCountry": "CA"
+    },
+    "sameAs": [
+      "https://www.instagram.com/yoga.with.annette"
+    ]
+  }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     /* ── VARIABLES ────────────────────────────────── */
@@ -462,56 +484,6 @@
       margin-top: 24px;
     }
 
-    /* ── BOOKSHELF ────────────────────────────────── */
-    .books-section {
-      padding: 56px 0;
-      background: var(--bg-alt);
-    }
-    .shelf-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-    }
-    .shelf-item {
-      padding: 18px 0;
-      border-top: 1px solid var(--border);
-    }
-    .shelf-item:nth-child(odd) {
-      padding-right: 48px;
-      border-right: 1px solid var(--border);
-    }
-    .shelf-item:nth-child(even) {
-      padding-left: 48px;
-    }
-    .shelf-item:last-child,
-    .shelf-item:nth-last-child(2):nth-child(odd) {
-      border-bottom: 1px solid var(--border);
-    }
-    .shelf-item::before {
-      content: '';
-      display: block;
-      width: 22px;
-      height: 16px;
-      margin-bottom: 10px;
-      background-repeat: no-repeat;
-      background-size: contain;
-      opacity: 0.55;
-      background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 16' fill='none'><path d='M11 3C9 2 5 2 1.5 3v10c3.5-1 7.5-1 9.5 0' stroke='%238b6f47' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M11 3c2-1 6-1 9.5 0v10c-3.5-1-7.5-1-9.5 0' stroke='%238b6f47' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/><line x1='11' y1='3' x2='11' y2='13' stroke='%238b6f47' stroke-width='1' stroke-linecap='round'/></svg>");
-    }
-    .shelf-title {
-      font-family: var(--font-serif);
-      font-size: 16px;
-      font-style: italic;
-      color: var(--accent-dk);
-      margin-bottom: 4px;
-    }
-    .shelf-author {
-      font-size: 9px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text-lt);
-    }
-
     /* ── TESTIMONIALS ─────────────────────────────── */
     .testimonials-section {
       padding: 88px 0;
@@ -756,13 +728,6 @@
       .services-grid { grid-template-columns: 1fr; }
       .service-card { padding: 28px; }
 
-      /* Bookshelf */
-      .books-section { padding: 40px 0; }
-      .shelf-grid { grid-template-columns: 1fr; }
-      .shelf-item:nth-child(odd) { padding-right: 0; border-right: none; }
-      .shelf-item:nth-child(even) { padding-left: 0; }
-      .shelf-item:nth-last-child(2):nth-child(odd) { border-bottom: none; }
-
       /* Updates */
       .updates-section { padding: 64px 0; }
       .update-entry { grid-template-columns: 1fr; gap: 8px; }
@@ -785,8 +750,7 @@
     #offerings .section-label::before,
     #testimonials .section-label::before,
     #contact .section-label::before,
-    #reflections .section-label::before,
-    #bookshelf .section-label::before {
+    #reflections .section-label::before {
       content: '';
       display: inline-block;
       width: 15px;
@@ -820,11 +784,6 @@
     /* Sun — Reflections */
     #reflections .section-label::before {
       background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%238b6f47' stroke-width='1.4' stroke-linecap='round'><circle cx='8' cy='8' r='2.5'/><line x1='8' y1='1' x2='8' y2='3'/><line x1='8' y1='13' x2='8' y2='15'/><line x1='1' y1='8' x2='3' y2='8'/><line x1='13' y1='8' x2='15' y2='8'/><line x1='3.2' y1='3.2' x2='4.6' y2='4.6'/><line x1='11.4' y1='11.4' x2='12.8' y2='12.8'/><line x1='12.8' y1='3.2' x2='11.4' y2='4.6'/><line x1='4.6' y1='11.4' x2='3.2' y2='12.8'/></svg>");
-    }
-
-    /* Open book — Bookshelf */
-    #bookshelf .section-label::before {
-      background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%238b6f47' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'><path d='M8 4C6 3 3 3 1 4v8c2-1 5-1 7 0'/><path d='M8 4c2-1 5-1 7 0v8c-2-1-5-1-7 0'/><line x1='8' y1='4' x2='8' y2='12'/></svg>");
     }
 
     /* ── VISUAL UPGRADES ──────────────────────────── */
@@ -873,10 +832,6 @@
     /* About photo: offset shadow frame */
     .about-photo { box-shadow: 6px 6px 0 var(--border); }
 
-    /* Book cards: subtle hover lift */
-    .book-card { transition: transform 0.25s ease; }
-    .book-card:hover { transform: translateY(-5px); }
-
     /* Community pills: hover tint */
     .clients-pill {
       transition: background 0.2s, color 0.2s, border-color 0.2s;
@@ -911,6 +866,7 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#offerings">Offerings</a></li>
+        <li><a href="#testimonials">Kind Words</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#reflections">Reflections</a></li>
       </ul>
@@ -921,8 +877,9 @@
   <section class="hero" id="home">
     <img
       class="hero-img"
-      src="landscape.png"
+      src="landscape.jpg"
       alt="Nova Scotia coastline at golden hour"
+      fetchpriority="high"
     >
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -1136,6 +1093,7 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#offerings">Offerings</a></li>
+          <li><a href="#testimonials">Kind Words</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="#reflections">Reflections</a></li>
           <li><a href="https://www.instagram.com/yoga.with.annette" target="_blank" rel="noopener">Instagram</a></li>
