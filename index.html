@@ -47,11 +47,11 @@
     :root {
       --bg:        #f5ede0;
       --bg-alt:    #eae4d8;
-      --accent:    #8b6f47;
+      --accent:    #7a603e;
       --accent-lt: #c4a882;
       --accent-dk: #4a3520;
       --text:      #5c4030;
-      --text-lt:   #a08060;
+      --text-lt:   #7a5f42;
       --sage:      #8fad88;
       --border:    #d4c4a8;
       --font-serif: 'Playfair Display', Georgia, serif;
@@ -86,7 +86,7 @@
     }
     .section-label {
       font-family: var(--font-sans);
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--text-lt);
@@ -104,7 +104,7 @@
     .btn {
       display: inline-block;
       font-family: var(--font-sans);
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       padding: 12px 28px;
@@ -123,7 +123,7 @@
     .btn-solid:hover { background: var(--accent-dk); border-color: var(--accent-dk); }
     .pill {
       display: inline-block;
-      font-size: 9px;
+      font-size: 11px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       padding: 4px 12px;
@@ -169,7 +169,7 @@
       gap: 28px;
     }
     .nav-links a {
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--text-lt);
@@ -205,15 +205,18 @@
         background: var(--bg);
         border-bottom: 1px solid var(--border);
         flex-direction: column;
-        padding: 0 32px;
+        padding: 16px 32px 24px;
         gap: 18px;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease, padding 0.3s ease;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
       }
       .nav-links.open {
-        max-height: 400px;
-        padding: 16px 32px 24px;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s;
       }
     }
 
@@ -308,7 +311,7 @@
       flex-wrap: wrap;
     }
     .clients-label {
-      font-size: 9px;
+      font-size: 11px;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--text-lt);
@@ -320,7 +323,7 @@
       flex-wrap: wrap;
     }
     .clients-pill {
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       padding: 5px 14px;
@@ -360,10 +363,10 @@
     }
     .about-mantra {
       font-family: var(--font-sans);
-      font-size: 9px;
+      font-size: 11px;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--accent-lt);
+      color: var(--accent);
       margin-bottom: 20px;
     }
     .about-text p {
@@ -385,7 +388,7 @@
       border-top: 1px solid var(--border);
     }
     .about-expect-label {
-      font-size: 9px;
+      font-size: 11px;
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--text-lt);
@@ -435,7 +438,7 @@
     }
     .service-tag {
       display: inline-block;
-      font-size: 8px;
+      font-size: 11px;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       padding: 4px 10px;
@@ -520,9 +523,9 @@
       color: var(--text-lt);
     }
     .testimonial-date {
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 0.15em;
-      color: var(--border);
+      color: var(--text-lt);
     }
     @media (max-width: 768px) {
       .testimonials-section { padding: 64px 0; }
@@ -552,7 +555,7 @@
     }
     .update-entry:last-child { border-bottom: 1px solid var(--border); }
     .update-date {
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--text-lt);
@@ -579,7 +582,7 @@
       background: none;
       border: none;
       font-family: var(--font-sans);
-      font-size: 9px;
+      font-size: 11px;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--accent);
@@ -619,7 +622,7 @@
       gap: 6px;
     }
     .form-label {
-      font-size: 9px;
+      font-size: 11px;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--text-lt);
@@ -699,7 +702,7 @@
       flex-wrap: wrap;
     }
     .footer-links a {
-      font-size: 9px;
+      font-size: 11px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--accent-lt);
@@ -708,9 +711,9 @@
     .footer-links a:hover { color: #e8dcc8; }
     .footer-bottom {
       padding-top: 20px;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      color: rgba(196,168,130,0.55);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      color: var(--accent-lt);
     }
 
     /* ── RESPONSIVE ───────────────────────────────── */
@@ -1137,6 +1140,7 @@
       link.addEventListener('click', () => {
         hamburger.classList.remove('open');
         navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
       });
     });
 
